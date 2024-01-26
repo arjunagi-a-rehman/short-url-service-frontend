@@ -1,0 +1,55 @@
+.Home-page{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.Generate-short{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+ 
+}
+.Insights-url{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar{
+  background-color: black;
+}
+.active{
+  box-shadow: 0 0 1px white;
+}
+
+.short-url-details{
+  
+  background-color: black;
+  box-shadow: 0 0 1px white;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+}
+.output{
+  margin-top: 15px;
+  padding: auto;
+
+}
+.tag{
+  font-style: oblique;
+  margin: 10px;
+}
+.details{
+
+  color: lightgreen;
+  font-family: sans-serif;
+}
+.clip-button{
+  height: 90%;
+  justify-self: right;
+}
+
+
