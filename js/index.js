@@ -144,12 +144,13 @@ function showGeneratedOutPut(shortUrlCode,longUrl,expiry){
 function fetchShortUrlDetails(){
   var shortUrl=document.querySelector('#shortUrl').value;
   console.log(shortUrl);
+  var errorMessage = document.getElementById('detailsErrorMessage');
   const domain="https://sus9.in/"
   if(shortUrl.startsWith(domain)){
     console.log(shortUrl)
+    errorMessage.textContent="";
     callGetDetailsApi(shortUrl.substring(domain.length));
   }else{
-    var errorMessage = document.getElementById('detailsErrorMessage');
     errorMessage.textContent="invalid URL";
   }
 }
