@@ -220,7 +220,7 @@ function callGenerateShortUrlApi(longUrl,expiryDate){
       console.log(output)
     }
 }
-function callGetDetailsApi(shortCode){
+async function callGetDetailsApi(shortCode){
   
   url=baseUrl+'/details/'+shortCode;
   console.log(url);
@@ -231,15 +231,19 @@ function callGetDetailsApi(shortCode){
     },
  
   }).then(
-    response=>{
+    async response=>{
       if(!response.ok){
         var errorMessage = document.getElementById('detailsErrorMessage');
           if(response.status===400){
             errorMessage.textContent="invalid URL";
             return;
           }
-          errorMessage.textContent = errorData.errorMessage;
-          console.log(errorData);
+          errorData=await response.json();
+          var message=errorData.errorMessage.split(":");
+          console.log(message);
+          errorMessage.textContent = message[0]+" https://sus9.in/"+message[1].slice(2,message[1].length-1);
+          
+          
           throw new Error(`HTTP error! Status: ${response.status}`);
       }
       return response.json()
